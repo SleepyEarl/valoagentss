@@ -12,8 +12,14 @@
       <h1>👾 Valorant Characters</h1>
 
       <div class="card">
+        <h2>Search Agent</h2>
+        <input type="text" id="search" placeholder="Search agent name..." />
+        <button onclick="searchAgent()">Search</button>
+      </div>
+
+      <div class="card">
         <h2>Character List</h2>
-        <button onclick="loadAgents()">Load All Hero</button>
+        <button onclick="loadAgents()">Load All Agents</button>
         <ul id="list"></ul>
       </div>
 
@@ -56,6 +62,29 @@
         list.appendChild(li);
       });
     }
+
+    async function searchAgent() {
+  const query = document.getElementById('search').value;
+
+  const res = await fetch(
+    `https://valorantagentsprojsystem-1.onrender.com/api/search?name=${query}`
+  );
+  const data = await res.json();
+
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+
+  data.forEach((agent) => {
+    const li = document.createElement('li');
+
+    li.innerHTML = `
+      ${agent.name} | ${agent.role} | ${agent.difficulty}
+      <button onclick="deleteAgent(${agent.id})">❌</button>
+    `;
+
+    list.appendChild(li);
+  });
+}
 
     async function deleteAgent(id) {
       await fetch(
