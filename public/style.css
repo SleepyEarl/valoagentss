@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -6,58 +5,72 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
+/* 🌌 Background */
 body {
-  background-image: url(iso.jpeg);
-  background-size: 1600px;
-  
+  background: linear-gradient(135deg, #0f172a, #1e293b);
   color: #fff;
   display: flex;
   justify-content: center;
   padding: 40px;
+  min-height: 100vh;
 }
 
-
+/* 📦 Container */
 .container {
   width: 100%;
-  max-width: 600px;
+  max-width: 650px;
 }
 
+/* 🧠 Title */
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 32px;
+  letter-spacing: 1px;
+  color: #f43f5e;
 }
 
-
+/* 🪟 Glass Card */
 .card {
-  background: #2f2f4f;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 16px;
   margin-bottom: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-
+/* 📝 Card Title */
 .card h2 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: #38bdf8;
 }
 
+/* 🧾 Inputs */
 input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 12px;
+  margin-bottom: 12px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  transition: 0.2s;
 }
 
+input:focus {
+  background: rgba(255, 255, 255, 0.15);
+}
 
+/* 🔘 Buttons */
 button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 8px;
-  background: #6c5ce7;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f43f5e, #9333ea);
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -65,23 +78,42 @@ button {
 }
 
 button:hover {
-  background: #4834d4;
+  transform: translateY(-2px);
+  opacity: 0.9;
 }
 
-
+/* 📜 List */
 ul {
   list-style: none;
   margin-top: 15px;
 }
 
-
+/* 🧍 Agent Item */
 li {
-  background: #40407a;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  font-size: 20px;
-  justify-content: center;
-  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
 }
 
+li:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ❌ Delete Button inside li */
+li button {
+  width: auto;
+  padding: 6px 10px;
+  background: #ef4444;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+li button:hover {
+  background: #dc2626;
+}
