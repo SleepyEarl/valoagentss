@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valo Characters</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>👾 Valorant Characters</h1>
+
+      <div class="card">
+        <h2>Character List</h2>
+        <button onclick="loadAgents()">Load All Hero</button>
+        <ul id="list"></ul>
+      </div>
+
+      <div class="card">
+        <h2>Add Agent</h2>
+        <input type="text" id="name" placeholder="Agent Name" />
+        <input
+          type="text"
+          id="role"
+          placeholder="Role (Duelist, Sentinel...)"
+        />
+        <input
+          type="text"
+          id="difficulty"
+          placeholder="Difficulty (Easy/Hard)"
+        />
+        <button onclick="addAgent()">Submit</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    async function loadAgents() {
+      const res = await fetch(
+        'https://valorantagentsprojsystem-1.onrender.com/api/agents'
+      );
+      const data = await res.json();
+
+      const list = document.getElementById('list');
+      list.innerHTML = '';
+
+      data.forEach((agent) => {
+        const li = document.createElement('li');
+
+        li.innerHTML = `
+    ${agent.name} | ${agent.role} | ${agent.difficulty}
+    <button onclick="deleteAgent(${agent.id})">❌</button>
+  `;
+
+        list.appendChild(li);
+      });
+    }
+
+    async function deleteAgent(id) {
+      await fetch(
+        `https://valorantagentsprojsystem-1.onrender.com/api/agents/${id}`,
+        {
+          method: 'DELETE',
+        }
+      );
+
+      loadAgents();
+    }
+
+    async function addAgent() {
+      const name = document.getElementById('name').value;
+      const role = document.getElementById('role').value;
+      const difficulty = document.getElementById('difficulty').value;
+
+      const res = await fetch(
+        'https://valorantagentsprojsystem-1.onrender.com/api/agents',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, role, difficulty }),
+        }
+      );
+
+      const data = await res.json();
+      console.log(data);
+
+      loadAgents();
+    }
+  </script>
+</html>
