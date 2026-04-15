@@ -8,7 +8,9 @@
 
 
 body {
-  background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+  background-image: url(iso.jpeg);
+  background-size: 1600px;
+  
   color: #fff;
   display: flex;
   justify-content: center;
