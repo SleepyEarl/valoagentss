@@ -17,12 +17,10 @@ let agents = [
 
 let nextId = 4;
 
-// ✅ 1. GET all agents
 app.get('/api/agents', (req, res) => {
   res.status(200).json(agents);
 });
 
-// ✅ 2. GET agent by ID
 app.get('/api/agents/:id', (req, res) => {
   const agent = agents.find((a) => a.id == req.params.id);
   if (!agent) {
@@ -31,7 +29,7 @@ app.get('/api/agents/:id', (req, res) => {
   res.json(agent);
 });
 
-// ✅ 3. POST new agent
+
 app.post('/api/agents', (req, res) => {
   const { name, role, difficulty } = req.body;
 
@@ -45,7 +43,7 @@ app.post('/api/agents', (req, res) => {
   res.status(201).json(newAgent);
 });
 
-// ✅ 4. PUT update agent
+
 app.put('/api/agents/:id', (req, res) => {
   const agent = agents.find((a) => a.id == req.params.id);
 
