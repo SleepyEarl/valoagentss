@@ -1,4 +1,4 @@
-/* Reset */
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Background */
+
 body {
   background: linear-gradient(135deg, #1e1e2f, #2c2c54);
   color: #fff;
@@ -15,19 +15,18 @@ body {
   padding: 40px;
 }
 
-/* Main container */
+
 .container {
   width: 100%;
   max-width: 600px;
 }
 
-/* Title */
 h1 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* Cards */
+
 .card {
   background: #2f2f4f;
   padding: 20px;
@@ -36,12 +35,11 @@ h1 {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Card titles */
+
 .card h2 {
   margin-bottom: 10px;
 }
 
-/* Inputs */
 input {
   width: 100%;
   padding: 10px;
@@ -51,7 +49,7 @@ input {
   outline: none;
 }
 
-/* Buttons */
+
 button {
   width: 100%;
   padding: 10px;
@@ -68,17 +66,19 @@ button:hover {
   background: #4834d4;
 }
 
-/* List */
+
 ul {
   list-style: none;
   margin-top: 15px;
 }
 
-/* List items */
+
 li {
   background: #40407a;
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 20px;
+  justify-content: center;
+  text-align: center;
 }
